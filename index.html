@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanika Verma — Web Developer & Digital Marketer</title>
+    <meta name="description"
+        content="Kanika Verma — aspiring full-stack web developer and digital marketer from Rewari, Haryana. HTML, CSS, JavaScript, React, Python, Java, MySQL, SEO & SMM.">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2321395C'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='24' font-weight='700' fill='%23FAF9F5' text-anchor='middle'%3EKV%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --paper: #FAF9F5;
+            --sand: #EFEBE0;
+            --ink: #1B1E27;
+            --ink-soft: #4A4F5C;
+            --navy: #21395C;
+            --navy-dark: #152840;
+            --coral: #D9684C;
+            --green: #3E8361;
+            --line: rgba(27, 30, 39, 0.10);
+            --shadow: 0 20px 45px -20px rgba(27, 30, 39, 0.25);
+            --r-sm: 8px;
+            --r-md: 14px;
+            --r-lg: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Sora', sans-serif;
+            color: var(--ink);
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        a {
+            color: var(--navy);
+            text-decoration: none;
+            transition: color .15s;
+        }
+
+        a:hover {
+            color: var(--coral);
+        }
+
+        section {
+            scroll-margin-top: 78px;
+        }
+
+        ::selection {
+            background: var(--coral);
+            color: #fff;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--coral);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: .001ms !important;
+                transition-duration: .001ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        .kv-wrap {
+            width: 100%;
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* progress bar */
+        #kv-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 0%;
+            background: var(--coral);
+            z-index: 1100;
+            transition: width .1s linear;
+        }
+
+        /* navbar */
+        .kv-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1050;
+            background: rgba(250, 249, 245, 0.92);
+            backdrop-filter: saturate(180%) blur(8px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .kv-nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .85rem 1.5rem;
+            max-width: 1160px;
+            margin: 0 auto;
+        }
+
+        .kv-brand {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--ink);
+        }
+
+        .kv-brand-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: var(--navy);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .82rem;
+            font-weight: 700;
+        }
+
+        .kv-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.9rem;
+        }
+
+        .kv-nav-links a {
+            font-size: .92rem;
+            font-weight: 500;
+            color: var(--ink-soft);
+            position: relative;
+            padding: .2rem 0;
+        }
+
+        .kv-nav-links a.is-active {
+            color: var(--ink);
+        }
+
+        .kv-nav-links a.is-active::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -6px;
+            height: 2px;
+            background: var(--coral);
+        }
+
+        .kv-nav-cta {
+            background: var(--coral);
+            color: #fff !important;
+            font-weight: 600;
+            font-size: .88rem;
+            padding: .55rem 1.15rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .kv-nav-cta:hover {
+            background: var(--navy-dark);
+        }
+
+        .kv-burger {
+            display: none;
+            background: none;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            width: 38px;
+            height: 36px;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--ink);
+        }
+
+        .kv-mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: .2rem;
+            padding: .5rem 1.5rem 1.2rem;
+            background: var(--paper);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .kv-mobile-menu.is-open {
+            display: flex;
+        }
+
+        .kv-mobile-menu a {
+            padding: .6rem 0;
+            color: var(--ink-soft);
+            border-bottom: 1px solid var(--line);
+            font-weight: 500;
+        }
+
+        .kv-mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width:880px) {
+            .kv-nav-links {
+                display: none;
+            }
+
+            .kv-burger {
+                display: flex;
+            }
+        }
+
+        /* hero */
+        .kv-hero {
+            padding: 9.5rem 0 5rem;
+        }
+
+        .kv-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: .78rem;
+            color: var(--green);
+            background: rgba(62, 131, 97, 0.08);
+            border: 1px solid rgba(62, 131, 97, 0.25);
+            border-radius: 999px;
+            padding: .3rem .8rem;
+        }
+
+        .kv-eyebrow .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            display: inline-block;
+        }
+
+        .kv-hero h1 {
+            font-size: clamp(2.2rem, 4.6vw, 3.1rem);
+            line-height: 1.12;
+            margin-top: 1rem;
+        }
+
+        .kv-hero h1 .accent {
+            color: var(--coral);
+        }
+
+        .kv-hero-role {
+            font-size: 1.15rem;
+            color: var(--navy);
+            font-weight: 600;
+            margin-top: .6rem;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .kv-hero-sub {
+            margin-top: 1rem;
+            color: var(--ink-soft);
+            max-width: 500px;
+            font-size: 1.03rem;
+        }
+
+        .kv-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            font-weight: 600;
+            font-size: .92rem;
+            padding: .75rem 1.45rem;
+            border-radius: var(--r-sm);
+            transition: transform .15s, box-shadow .15s, background .15s;
+        }
+
+        .kv-btn-primary {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .kv-btn-primary:hover {
+            background: var(--navy-dark);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .kv-btn-outline {
+            background: transparent;
+            color: var(--ink);
+            border: 1.5px solid var(--line);
+        }
+
+        .kv-btn-outline:hover {
+            border-color: var(--navy);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        .kv-social-row {
+            display: flex;
+            gap: .9rem;
+            margin-top: 1.6rem;
+        }
+
+        .kv-social-row a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1.5px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ink-soft);
+            font-size: 1.05rem;
+        }
+
+        .kv-social-row a:hover {
+            border-color: var(--navy);
+            color: var(--navy);
+            background: var(--sand);
+        }
+
+        .kv-infocard {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r-lg);
+            box-shadow: var(--shadow);
+            padding: 1.8rem;
+        }
+
+        .kv-infocard-row {
+            display: flex;
+            gap: .9rem;
+            padding: .85rem 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .kv-infocard-row:last-child {
+            border-bottom: none;
+        }
+
+        .kv-infocard-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--sand);
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .kv-infocard-row strong {
+            display: block;
+            font-size: .78rem;
+            color: var(--ink-soft);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+        }
+
+        .kv-infocard-row span {
+            font-size: .97rem;
+            color: var(--ink);
+        }
+
+        /* section scaffold */
+        .kv-section {
+            padding: 5.5rem 0;
+        }
+
+        .kv-section-alt {
+            background: var(--sand);
+        }
+
+        .kv-eyebrow-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: .78rem;
+            color: var(--coral);
+            font-weight: 500;
+        }
+
+        .kv-section-head h2 {
+            font-size: clamp(1.7rem, 3vw, 2.25rem);
+            margin-top: .4rem;
+        }
+
+        .kv-section-head p {
+            color: var(--ink-soft);
+            max-width: 580px;
+            margin-top: .7rem;
+        }
+
+        .kv-reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .5s ease, transform .5s ease;
+        }
+
+        .kv-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* about */
+        .kv-avatar {
+            width: 148px;
+            height: 148px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Sora', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            border: 6px solid #fff;
+            box-shadow: var(--shadow);
+            margin: 0 auto;
+        }
+
+        .kv-fact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.6rem;
+        }
+
+        .kv-fact {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r-md);
+            padding: 1.1rem 1.2rem;
+        }
+
+        .kv-fact i {
+            color: var(--coral);
+            font-size: 1.05rem;
+        }
+
+        .kv-fact strong {
+            display: block;
+            font-size: .78rem;
+            color: var(--ink-soft);
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            margin-top: .4rem;
+        }
+
+        .kv-fact span {
+            font-size: .95rem;
+        }
+
+        /* skills */
+        .kv-skill-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r-lg);
+            padding: 1.8rem;
+            height: 100%;
+            transition: transform .18s, box-shadow .18s;
+        }
+
+        .kv-skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .kv-skill-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .kv-skill-card h4 {
+            font-size: 1.1rem;
+        }
+
+        .kv-skill-note {
+            font-size: .82rem;
+            color: var(--green);
+            margin-top: .2rem;
+            font-weight: 500;
+        }
+
+        .kv-chip-row {
+            margin-top: 1rem;
+        }
+
+        .kv-chip {
+            display: inline-block;
+            font-size: .82rem;
+            background: var(--sand);
+            color: var(--ink-soft);
+            border-radius: 999px;
+            padding: .32rem .85rem;
+            margin: .2rem .3rem .2rem 0;
+        }
+
+        /* education timeline */
+        .kv-timeline {
+            max-width: 760px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 2.4rem;
+        }
+
+        .kv-timeline::before {
+            content: "";
+            position: absolute;
+            left: 9px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--line);
+        }
+
+        .kv-tl-item {
+            position: relative;
+            padding-bottom: 2.4rem;
+        }
+
+        .kv-tl-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .kv-tl-item::before {
+            content: "";
+            position: absolute;
+            left: -2.4rem;
+            top: .3rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--navy);
+            border: 4px solid var(--paper);
+        }
+
+        .kv-tl-item.is-current::before {
+            background: var(--coral);
+        }
+
+        .kv-tl-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r-md);
+            padding: 1.3rem 1.5rem;
+        }
+
+        .kv-tl-year {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: .78rem;
+            color: var(--coral);
+            font-weight: 500;
+        }
+
+        .kv-tl-card h4 {
+            margin-top: .3rem;
+            font-size: 1.08rem;
+        }
+
+        .kv-tl-card p {
+            margin: .3rem 0 0;
+            color: var(--ink-soft);
+            font-size: .93rem;
+        }
+
+        .kv-score {
+            display: inline-block;
+            margin-top: .6rem;
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--navy);
+            background: var(--sand);
+            border-radius: 6px;
+            padding: .2rem .6rem;
+        }
+
+        /* projects */
+        .kv-project {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform .18s, box-shadow .18s;
+        }
+
+        .kv-project:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .kv-project-top {
+            padding: 1.6rem 1.6rem 1.2rem;
+            background: var(--navy);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: .9rem;
+        }
+
+        .kv-project-mark {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Sora', sans-serif;
+            flex: 0 0 auto;
+        }
+
+        .kv-project-top h3 {
+            color: #fff;
+            font-size: 1.18rem;
+        }
+
+        .kv-project-body {
+            padding: 1.5rem 1.6rem 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .kv-project-body p {
+            color: var(--ink-soft);
+            font-size: .96rem;
+            margin: 0;
+        }
+
+        .kv-project-body ul {
+            margin: 1rem 0 0;
+            padding-left: 1.1rem;
+            font-size: .92rem;
+            color: var(--ink-soft);
+        }
+
+        .kv-project-body ul li {
+            margin-bottom: .35rem;
+        }
+
+        .kv-tag-row {
+            margin-top: 1.1rem;
+        }
+
+        .kv-project-link {
+            margin-top: 1.3rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            font-weight: 600;
+            font-size: .9rem;
+            color: var(--navy);
+        }
+
+        .kv-project-link:hover {
+            color: var(--coral);
+        }
+
+        .kv-write-strip {
+            margin-top: 2.8rem;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r-lg);
+            padding: 1.4rem 1.7rem;
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            flex-wrap: wrap;
+        }
+
+        .kv-write-strip i {
+            font-size: 1.5rem;
+            color: var(--coral);
+        }
+
+        .kv-write-strip p {
+            margin: 0;
+            color: var(--ink-soft);
+            font-size: .93rem;
+        }
+
+        /* contact */
+        .kv-contact {
+            background: var(--navy);
+            color: #fff;
+        }
+
+        .kv-contact .kv-section-head h2 {
+            color: #fff;
+        }
+
+        .kv-contact .kv-section-head p {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .kv-contact-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--r-lg);
+            padding: 2rem;
+        }
+
+        .kv-form label {
+            font-size: .82rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: .35rem;
+            display: block;
+        }
+
+        .kv-form .form-control {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+            border-radius: var(--r-sm);
+            padding: .7rem .85rem;
+        }
+
+        .kv-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .kv-form .form-control:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--coral);
+            color: #fff;
+            box-shadow: 0 0 0 3px rgba(217, 104, 76, 0.25);
+        }
+
+        .kv-send {
+            background: var(--coral);
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: .9rem;
+            padding: .75rem 1.5rem;
+            border-radius: var(--r-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .kv-send:hover {
+            background: #c1573e;
+        }
+
+        #kv-status {
+            font-size: .85rem;
+            margin-top: .9rem;
+            min-height: 1.3em;
+            color: #9CD6B4;
+        }
+
+        .kv-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .kv-contact-info a,
+        .kv-contact-info span {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            color: rgba(255, 255, 255, 0.88);
+            font-size: .97rem;
+        }
+
+        .kv-contact-info i {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            color: var(--coral);
+        }
+
+        footer.kv-footer {
+            background: var(--navy-dark);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 1.6rem 0;
+            font-size: .85rem;
+            text-align: center;
+        }
+
+        footer.kv-footer a {
+            color: rgba(255, 255, 255, 0.85);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="kv-progress"></div>
+
+    <header class="kv-nav">
+        <div class="kv-nav-inner">
+            <div class="kv-brand"><span class="kv-brand-mark">KV</span> Kanika Verma</div>
+            <nav class="kv-nav-links" id="kv-nav-links">
+                <a href="#home" data-target="home">Home</a>
+                <a href="#about" data-target="about">About</a>
+                <a href="#skills" data-target="skills">Skills</a>
+                <a href="#education" data-target="education">Education</a>
+                <a href="#projects" data-target="projects">Projects</a>
+                <a href="#contact" data-target="get in touch">Get In Touch</a>
+            </nav>
+            <button class="kv-burger" id="kv-burger" aria-label="Toggle menu" aria-expanded="false"><i
+                    class="bi bi-list"></i></button>
+        </div>
+        <div class="kv-mobile-menu" id="kv-mobile-menu">
+            <a href="#home" data-target="home">Home</a>
+            <a href="#about" data-target="about">About</a>
+            <a href="#skills" data-target="skills">Skills</a>
+            <a href="#education" data-target="education">Education</a>
+            <a href="#projects" data-target="projects">Projects</a>
+            <a href="#contact" data-target="contact">Contact</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="kv-hero">
+        <div class="kv-wrap">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 kv-reveal">
+                    <!-- <span class="kv-eyebrow"><span class="dot"></span>Open to internships &amp; entry-level roles</span> -->
+                    <h1>Kanika Verma — building <span class="accent">clean web experiences</span> that are built to be
+                        found.</h1>
+                    <p class="kv-hero-role">Web Developer &amp; Digital Marketer</p>
+                    <p class="kv-hero-sub">BCA student from Rewari, Haryana. I build responsive front-ends with HTML,
+                        CSS, JavaScript and React, I'm growing into full-stack with Python, Java and MySQL, and I bring
+                        SEO and SMM know-how so what I build actually gets seen.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="https://github.com/Kanikaverma1234/Projects" class="kv-btn kv-btn-primary"><i
+                                class="bi bi-folder2-open"></i> View
+                            Projects</a>
+                        <a href="KanikaResume.pdf" class="kv-btn kv-btn-primary"><i class="bi bi-send"></i> Resume</a>
+                    </div>
+                    <div class="kv-social-row">
+                        <a href="mailto:v.vermakanika@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+                        <a href="tel:+918950787886" aria-label="Phone"><i class="bi bi-telephone"></i></a>
+                        <a href="https://www.linkedin.com/in/kanika-verma-69486a290/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://github.com/Kanikaverma1234" target="_blank" rel="noopener"
+                            aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-5 kv-reveal">
+                    <div class="kv-infocard">
+                        <div class="kv-infocard-row">
+                            <div class="kv-infocard-icon"><i class="bi bi-geo-alt"></i></div>
+                            <div><strong>Location</strong><span>Rewari, Haryana, India</span></div>
+                        </div>
+                        <div class="kv-infocard-row">
+                            <div class="kv-infocard-icon"><i class="bi bi-mortarboard"></i></div>
+                            <div><strong>Education</strong><span>BCA, 2nd Year — Krishan Lal Public College</span></div>
+                        </div>
+                        <div class="kv-infocard-row">
+                            <div class="kv-infocard-icon"><i class="bi bi-laptop"></i></div>
+                            <div><strong>Focus</strong><span>Front-End Development &amp; Digital Marketing</span></div>
+                        </div>
+                        <div class="kv-infocard-row">
+                            <div class="kv-infocard-icon"><i class="bi bi-check-circle"></i></div>
+                            <div><strong>Availability</strong><span>Internships &amp; entry-level roles</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="kv-section">
+        <div class="kv-wrap">
+            <div class="kv-section-head kv-reveal">
+                <span class="kv-eyebrow-tag">About</span>
+                <h2>A bit about me</h2>
+            </div>
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-4 text-center kv-reveal">
+                    <div class="kv-avatar">KV</div>
+                </div>
+                <div class="col-lg-8 kv-reveal">
+                    <p style="font-size:1.03rem;">I'm a BCA student who got hooked on web development the moment a line
+                        of CSS turned into a real layout. Most of my hands-on experience is in front-end work, HTML,
+                        CSS, JavaScript and React, and I'm now building up Python, Java and MySQL so I can work across
+                        the full stack.</p>
+                    <p style="font-size:1.03rem;">Digital marketing isn't a side interest, either. I like that SEO and
+                        SMM are the difference between a great site nobody finds and one that actually reaches people,
+                        so I bring both skill sets to everything I build.</p>
+                    <div class="kv-fact-grid">
+                        <!-- <div class="kv-fact"><i class="bi bi-translate"></i><strong>Writing</strong><span>Active writer
+                                on Medium — JS &amp; web dev</span></div> -->
+                        <div class="kv-fact"><i class="bi bi-bullseye"></i><strong>Looking for</strong><span>Web dev /
+                                full-stack internships</span></div>
+                        <div class="kv-fact"><i class="bi bi-mortarboard"></i><strong>12th CBSE</strong><span>86% — PM
+                                Shri KV, Konsiwas</span></div>
+                        <div class="kv-fact"><i class="bi bi-award"></i><strong>10th CBSE</strong><span>85% — Saini
+                                Public School</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="kv-section kv-section-alt">
+        <div class="kv-wrap">
+            <div class="kv-section-head kv-reveal">
+                <span class="kv-eyebrow-tag">Skills</span>
+                <h2>What I work with</h2>
+                <p>A growing full-stack toolkit, paired with the marketing skills to make sure what I build gets seen.
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 kv-reveal">
+                    <div class="kv-skill-card">
+                        <div class="kv-skill-icon" style="background:var(--navy);"><i class="bi bi-code-slash"></i>
+                        </div>
+                        <h4>Frontend Development</h4>
+                        <div class="kv-chip-row">
+                            <span class="kv-chip">HTML5</span><span class="kv-chip">CSS3</span><span
+                                class="kv-chip">JavaScript</span><span class="kv-chip">React.js</span><span
+                                class="kv-chip">Bootstrap</span><span class="kv-chip">Responsive Design</span><span
+                                class="kv-chip">Git &amp; GitHub</span><span class="kv-chip">WordPress</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 kv-reveal">
+                    <div class="kv-skill-card">
+                        <div class="kv-skill-icon" style="background:var(--coral);"><i class="bi bi-terminal"></i></div>
+                        <h4>Backend &amp; Programming</h4>
+                        <div class="kv-skill-note">Currently strengthening</div>
+                        <div class="kv-chip-row">
+                            <span class="kv-chip">Python</span><span class="kv-chip">Java</span><span
+                                class="kv-chip">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 kv-reveal">
+                    <div class="kv-skill-card">
+                        <div class="kv-skill-icon" style="background:var(--green);"><i class="bi bi-megaphone"></i>
+                        </div>
+                        <h4>Digital Marketing</h4>
+                        <div class="kv-chip-row">
+                            <span class="kv-chip">SEO (On-page &amp; Off-page)</span><span
+                                class="kv-chip">SMM</span><span class="kv-chip">SMO</span><span class="kv-chip">Website
+                                Optimization</span><span class="kv-chip">Keyword Research</span><span
+                                class="kv-chip">Content Optimization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 kv-reveal">
+                    <div class="kv-skill-card">
+                        <div class="kv-skill-icon" style="background:#8C6A3D;"><i
+                                class="bi bi-file-earmark-spreadsheet"></i></div>
+                        <h4>MS Excel &amp; Data</h4>
+                        <div class="kv-chip-row">
+                            <span class="kv-chip">SUM, AVERAGE, IF, COUNT, SUMIFS</span><span class="kv-chip">VLOOKUP
+                                &amp; HLOOKUP</span><span class="kv-chip">INDEX-MATCH</span><span class="kv-chip">Pivot
+                                Tables &amp; Charts</span><span class="kv-chip">Data Cleaning &amp; Formatting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="kv-section">
+        <div class="kv-wrap">
+            <div class="kv-section-head kv-reveal text-center mx-auto">
+                <span class="kv-eyebrow-tag">Education</span>
+                <h2>Academic background</h2>
+            </div>
+            <div class="kv-timeline kv-reveal">
+                <div class="kv-tl-item is-current">
+                    <div class="kv-tl-card">
+                        <div class="kv-tl-year">2024 — Present</div>
+                        <h4>Bachelor of Computer Application (BCA)</h4>
+                        <p>Krishan Lal Public College, Rewari, Haryana</p>
+                        <span class="kv-score">2nd Year · In Progress</span>
+                    </div>
+                </div>
+                <div class="kv-tl-item">
+                    <div class="kv-tl-card">
+                        <div class="kv-tl-year">2024</div>
+                        <h4>12th — CBSE</h4>
+                        <p>PM Shri Kendriya Vidyalaya, Konsiwas, Rewari, Haryana</p>
+                        <span class="kv-score">86%</span>
+                    </div>
+                </div>
+                <div class="kv-tl-item">
+                    <div class="kv-tl-card">
+                        <div class="kv-tl-year">2022</div>
+                        <h4>10th — CBSE</h4>
+                        <p>Saini Public School, Rewari, Haryana</p>
+                        <span class="kv-score">85%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="kv-section kv-section-alt">
+        <div class="kv-wrap">
+            <div class="kv-section-head kv-reveal">
+                <span class="kv-eyebrow-tag">Projects</span>
+                <h2>What I've shipped</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 kv-reveal">
+                    <div class="kv-project">
+                        <div class="kv-project-top">
+                            <div class="kv-project-mark">RH</div>
+                            <h3>Rewari Handicrafts</h3>
+                        </div>
+                        <div class="kv-project-body">
+                            <p>A responsive e-commerce-style website built to showcase products and make enquiries
+                                effortless.</p>
+                            <ul>
+                                <li>Built product listings, navigation and bulk-enquiry forms with HTML, CSS, JavaScript
+                                    &amp; Bootstrap</li>
+                                <li>Made every layout fully responsive across devices</li>
+                                <li>Handled SEO optimization and UI improvements to boost user experience</li>
+                            </ul>
+                            <div class="kv-tag-row">
+                                <span class="kv-chip">HTML</span><span class="kv-chip">CSS</span><span
+                                    class="kv-chip">JavaScript</span><span class="kv-chip">Bootstrap</span><span
+                                    class="kv-chip">SEO</span>
+                            </div>
+                            <a class="kv-project-link" href="https://akhandjyotdiya.in/" target="_blank"
+                                rel="noopener">Visit live site <i class="bi bi-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 kv-reveal">
+                    <div class="kv-project">
+                        <div class="kv-project-top">
+                            <div class="kv-project-mark">AZ</div>
+                            <h3>Amazon Clone &amp; CSS Designs</h3>
+                        </div>
+                        <div class="kv-project-body">
+                            <p>An Amazon-inspired e-commerce layout built to practice real-world UI structure at scale.
+                            </p>
+                            <ul>
+                                <li>Built nav bar, search bar, product listings, banners &amp; footer from scratch</li>
+                                <li>Designed core UI components with HTML, CSS &amp; JavaScript</li>
+                                <li>Focused on responsive design across screen sizes</li>
+                            </ul>
+                            <div class="kv-tag-row">
+                                <span class="kv-chip">HTML</span><span class="kv-chip">CSS</span><span
+                                    class="kv-chip">JavaScript</span><span class="kv-chip">UI Design</span>
+                            </div>
+                            <a class="kv-project-link" href="https://github.com/Kanikaverma1234/Projects"
+                                target="_blank" rel="noopener">View on GitHub <i class="bi bi-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="kv-write-strip kv-reveal">
+                <i class="bi bi-medium"></i>
+                <p><strong>Also writing on Medium</strong> — sharing what I learn about JavaScript, web development and
+                    interview prep. <em>(Add your Medium profile link here.)</em></p>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="kv-section kv-contact">
+        <div class="kv-wrap">
+            <div class="kv-section-head kv-reveal">
+                <span class="kv-eyebrow-tag" style="color:#E8957F;">Contact</span>
+                <h2>Let's work together</h2>
+                <p>Open to internships and entry-level full-stack / web developer roles. Reach out directly or send a
+                    message below.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-7 kv-reveal">
+                    <div class="kv-contact-card">
+                        <form class="kv-form" id="kv-contact-form" novalidate>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label for="kv-name">Name</label>
+                                    <input type="text" class="form-control" id="kv-name" required
+                                        placeholder="Your name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="kv-email">Email</label>
+                                    <input type="email" class="form-control" id="kv-email" required
+                                        placeholder="you@example.com">
+                                </div>
+                                <div class="col-12">
+                                    <label for="kv-message">Message</label>
+                                    <textarea class="form-control" id="kv-message" rows="4" required
+                                        placeholder="Let's talk about..."></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="kv-send mt-3"><i class="bi bi-send"></i> Send Message</button>
+                            <div id="kv-status" role="status"></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 kv-reveal">
+                    <div class="kv-contact-info">
+                        <a href="mailto:v.vermakanika@gmail.com"><i class="bi bi-envelope"></i>
+                            v.vermakanika@gmail.com</a>
+                        <a href="tel:+918950787886"><i class="bi bi-telephone"></i> +91 89507 87886</a>
+                        <span><i class="bi bi-geo-alt"></i> Rewari, Haryana, India</span>
+                        <a href="https://www.linkedin.com/in/kanika-verma-69486a290/" target="_blank" rel="noopener"><i
+                                class="bi bi-linkedin"></i> LinkedIn</a>
+                        <a href="https://github.com/Kanikaverma1234" target="_blank" rel="noopener"><i
+                                class="bi bi-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="kv-footer">
+        <div class="kv-wrap">&copy; <span id="kv-year"></span> Kanika Verma · Built with HTML, CSS, JavaScript &amp;
+            Bootstrap</div>
+    </footer>
+
+    <script>
+        (function () {
+            document.getElementById('kv-year').textContent = new Date().getFullYear();
+
+            // scroll progress bar
+            var progress = document.getElementById('kv-progress');
+            function updateProgress() {
+                var h = document.documentElement;
+                var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+                progress.style.width = (scrolled || 0) + '%';
+            }
+            window.addEventListener('scroll', updateProgress);
+            updateProgress();
+
+            // mobile menu
+            var burger = document.getElementById('kv-burger');
+            var mobileMenu = document.getElementById('kv-mobile-menu');
+            burger.addEventListener('click', function () {
+                var open = mobileMenu.classList.toggle('is-open');
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            mobileMenu.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () { mobileMenu.classList.remove('is-open'); });
+            });
+
+            // scrollspy
+            var navLinks = document.querySelectorAll('.kv-nav-links a[data-target], .kv-mobile-menu a[data-target]');
+            var sections = ['home', 'about', 'skills', 'education', 'projects', 'contact'];
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(function (link) {
+                            link.classList.toggle('is-active', link.getAttribute('data-target') === entry.target.id);
+                        });
+                    }
+                });
+            }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+            sections.forEach(function (id) {
+                var el = document.getElementById(id);
+                if (el) observer.observe(el);
+            });
+
+            // reveal on scroll
+            var revealObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.kv-reveal').forEach(function (el) { revealObserver.observe(el); });
+
+            // contact form
+            var form = document.getElementById('kv-contact-form');
+            var status = document.getElementById('kv-status');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var name = document.getElementById('kv-name').value.trim();
+                var email = document.getElementById('kv-email').value.trim();
+                var message = document.getElementById('kv-message').value.trim();
+                if (!name || !email || !message) {
+                    status.style.color = '#E8957F';
+                    status.textContent = 'Please fill in every field before sending.';
+                    return;
+                }
+                var subject = encodeURIComponent('Portfolio enquiry from ' + name);
+                var body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+                window.location.href = 'mailto:v.vermakanika@gmail.com?subject=' + subject + '&body=' + body;
+                status.style.color = '#9CD6B4';
+                status.textContent = 'Opening your email app to send this message...';
+            });
+        })();
+    </script>
+</body>
+
+</html>
